@@ -3,135 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gesture-Controlled Home Dashboard</title>
+<title>🤖🖐️📡 Gesture Control Wireless Communication System</title>
 
 <style>
+/* GENERAL STYLES */
 body {
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #000;
-  color:#fff;
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #f4f7f6; 
+  color: #000;
+  overflow-x: hidden;
 }
 
-/* LOGIN */
+/* LOGO STYLING */
+.logo {
+  width: 80px; /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 50%; /* Makes it circular if it's a square image */
+  background: white;
+  padding: 5px;
+}
+
+.dashboard-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 15px;
+}
+
+/* LOGIN & IP PAGES */
 #loginPage, #loginPage2, #ipPage {
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #000;
 }
 
-#loginPage2, #dashboard, #ipPage { display:none; }
+#loginPage2, #dashboard, #ipPage { display: none; }
 
 .login-box {
-  background: rgba(0,255,255,0.08);
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 0 30px cyan;
-  text-align:center;
+  background: rgba(0, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  text-align: center;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  width: 320px;
+  color: #fff;
+}
+
+.ip-card {
+  background: linear-gradient(145deg, rgba(10, 10, 10, 1), rgba(30, 30, 30, 1));
+  border: 2px solid cyan;
 }
 
 .login-box input {
-  padding:10px;
-  margin:10px;
-  width:220px;
-  border:none;
-  border-radius:10px;
+  padding: 12px;
+  margin: 10px 0;
+  width: 90%;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  color: #000;
 }
 
 .login-box button {
-  padding:10px 20px;
-  margin:5px;
-  background:cyan;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-/* 🔥 BACK BUTTON */
-.back-btn {
-  position:absolute;
-  bottom:20px;
-  right:20px;
-  padding:12px 18px;
-  border:none;
-  border-radius:50px;
-  background: linear-gradient(45deg, #ff6a00, #ee0979);
-  color:#fff;
-  font-size:16px;
-  cursor:pointer;
+  padding: 12px 25px;
+  margin: 15px 5px;
+  background: cyan;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* DASHBOARD */
-.container {
-  padding:20px;
+#dashboard {
+  background: #f0f2f5;
+  min-height: 100vh;
+  color: #000;
 }
 
-h1 {
-  margin-bottom:20px;
-  text-align:center;
+.container { padding: 30px; max-width: 1300px; margin: auto; }
+
+h1 { 
+  text-align: center; 
+  color: #000; 
+  font-weight: 800;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
 }
 
 .top-bar {
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  margin-bottom:20px;
-  gap:10px;
-}
-
-input {
-  padding:10px;
-  border-radius:8px;
-  border:none;
-  width:250px;
-}
-
-button {
-  padding:10px 20px;
-  border:none;
-  border-radius:10px;
-  background: linear-gradient(45deg, #4facfe, #00f2fe);
-  color:white;
-  cursor:pointer;
-  margin:5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  animation: slideDown 0.5s ease-out;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  padding:15px;
-  border-radius:15px;
-  margin:10px;
-  flex:1;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 24px;
+  margin: 10px;
+  flex: 1;
+  min-width: 200px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-out;
+  text-align: center;
 }
 
-.row {
-  display:flex;
-  flex-wrap:wrap;
+.card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #000;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.status {
-  color:red;
+.device-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap; 
+  margin: 0 -10px;
 }
 
+.row { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+
+.status { 
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #c0392b; 
+}
+
+.btn-main {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  background: #e74c3c; 
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.control-btn {
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  background: #1a1a1a; 
+  color: #fff;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.back-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  background: #1a1a1a; 
+  color: #2ecc71; 
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  border: 2px solid #2ecc71;
+}
+
+.dashboard-input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #000;
+  width: 300px;
+  font-weight: 600;
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN PAGE 1 -->
 <div id="loginPage">
   <div class="login-box">
-    <h2>Login</h2>
-    <input type="text" placeholder="Username"><br>
-    <input type="password" placeholder="Password"><br>
+    <h2>WELCOME! 🤖🖐️📡</h2>
+    <input type="text" id="userIn" placeholder="Username"><br>
+    <input type="password" id="passIn" placeholder="Password"><br>
     <button onclick="loginUser1()">Enter</button><br>
-    <button onclick="openNewLogin()">New Login</button>
+    <button style="background:transparent; color:cyan; border:1px solid cyan;" onclick="openNewLogin()">New Login</button>
   </div>
 </div>
 
-<!-- LOGIN PAGE 2 -->
 <div id="loginPage2">
   <div class="login-box">
     <h2>New Login</h2>
@@ -139,90 +230,75 @@ button {
     <input type="password" placeholder="New Password"><br>
     <button onclick="loginUser2()">Enter</button>
   </div>
-
   <button class="back-btn" onclick="goBackToLogin()">⬅ Back</button>
 </div>
 
-<!-- 🔥 NEW PAGE AFTER NEW LOGIN -->
 <div id="ipPage">
-  <div class="login-box">
-    <h2>Enter ESP32 IP</h2>
-    <input type="text" id="ipInput" placeholder="192.168.1.10"><br>
-    <button onclick="goToDashboard()">Continue</button>
+  <div class="login-box ip-card">
+    <h2>Device Setup</h2>
+    <p style="color: #fff; font-size: 14px; font-weight: bold;">Enter your ESP32 IP Address to link your home devices.</p>
+    <input type="text" id="ipInput" placeholder="192.168.1.XX">
+    <button onclick="goToDashboard()">Connect Dashboard</button>
   </div>
-
-  <button class="back-btn" onclick="goBackToLogin()">⬅ Back</button>
+  <button class="back-btn" onclick="openNewLogin()">⬅ Back</button>
 </div>
 
-<!-- DASHBOARD -->
 <div id="dashboard">
+  <div class="container">
+    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+         <h1>🤖🖐️📡Gesture Control Wireless Communication System</h1>
+    </div>
 
-<div class="container">
+    <div class="top-bar">
+      <div class="left-group">
+        <input type="text" id="ip" class="dashboard-input" placeholder="Enter IP (Auto-saves)..." oninput="autoSaveIP(this.value)">
+      </div>
+      <div class="right-group">
+        <button class="btn-main" onclick="logout()">Logout</button>
+      </div>
+    </div>
 
-<h1>Gesture-Controlled Home Dashboard</h1>
+    <div class="row">
+      <div class="card">
+        <h3>Network Status</h3>
+        <p id="connection" style="font-size: 1.2rem; color: #000;">ESP32: Disconnected</p>
+        <p id="lastUpdate" style="color: #000; font-size: 0.9rem;">Last Sync: Never</p>
+      </div>
+      <div class="card">
+        <h3>Active Gesture</h3>
+        <p id="gesture" style="font-size: 1.2rem; color: #27ae60;">Waiting for Input...</p>
+        <button class="control-btn" onclick="getGesture()">Manual Refresh</button>
+      </div>
+    </div>
 
-<div class="top-bar">
-    <input type="text" id="ip" placeholder="ESP32 IP (ex: 192.168.1.10)">
-    <button onclick="saveIP()">Save IP</button>
-    <button onclick="logout()">Logout</button>
-</div>
-
-<div class="row">
-  <div class="card">
-    <h3>System Status</h3>
-    <p id="connection">ESP32 Connection: Disconnected</p>
-    <p id="lastUpdate">Last Updated: --</p>
+    <div class="device-row">
+      <div class="card">
+        <h3>Smart Light 💡</h3>
+        <button class="control-btn" onclick="control('light','on')">ON</button>
+        <button class="control-btn" onclick="control('light','off')">OFF</button>
+        <p>Status: <span id="lightStatus" class="status">OFF</span></p>
+      </div>
+      <div class="card">
+        <h3>Cooling Fan 🌀</h3>
+        <button class="control-btn" onclick="control('fan','on')">ON</button>
+        <button class="control-btn" onclick="control('fan','off')">OFF</button>
+        <p>Status: <span id="fanStatus" class="status">OFF</span></p>
+      </div>
+      <div class="card">
+        <h3>Smart TV 📺</h3>
+        <button class="control-btn" onclick="control('tv','on')">ON</button>
+        <button class="control-btn" onclick="control('tv','off')">OFF</button>
+        <p>Status: <span id="tvStatus" class="status">OFF</span></p>
+      </div>
+      <div class="card">
+        <h3>Power Socket 🔌</h3>
+        <button class="control-btn" onclick="control('socket','on')">ON</button>
+        <button class="control-btn" onclick="control('socket','off')">OFF</button>
+        <p>Status: <span id="socketStatus" class="status">OFF</span></p>
+      </div>
+    </div>
   </div>
-
-  <div class="card">
-    <h3>Gesture Status</h3>
-    <p id="gesture">Swipe Right → Light ON</p>
-    <button onclick="getGesture()">Refresh Gesture</button>
-  </div>
-
-  <div class="card">
-    <h3>Refresh</h3>
-    <button onclick="refreshStatus()">Refresh Status</button>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="card">
-    <h3>Light 💡</h3>
-    <button onclick="control('light','on')">ON</button>
-    <button onclick="control('light','off')">OFF</button>
-    <p>Status: <span id="lightStatus" class="status">OFF</span></p>
-  </div>
-
-  <div class="card">
-    <h3>Fan 🌀</h3>
-    <button onclick="control('fan','on')">ON</button>
-    <button onclick="control('fan','off')">OFF</button>
-    <p>Status: <span id="fanStatus" class="status">OFF</span></p>
-  </div>
-
-  <div class="card">
-    <h3>TV 📺</h3>
-    <button onclick="control('tv','on')">ON</button>
-    <button onclick="control('tv','off')">OFF</button>
-    <p>Status: <span id="tvStatus" class="status">OFF</span></p>
-  </div>
-
-  <div class="card">
-    <h3>Socket 🔌</h3>
-    <button onclick="control('socket','on')">ON</button>
-    <button onclick="control('socket','off')">OFF</button>
-    <p>Status: <span id="socketStatus" class="status">OFF</span></p>
-  </div>
-
-</div>
-
-</div>
-
-<!-- 🔥 BACK BUTTON ON DASHBOARD -->
-<button class="back-btn" onclick="logout()">⬅ Back</button>
-
+  <button class="back-btn" onclick="logout()">⬅ Back</button>
 </div>
 
 <script>
@@ -231,11 +307,19 @@ let espIP = "";
 function openNewLogin(){
   document.getElementById('loginPage').style.display='none';
   document.getElementById('loginPage2').style.display='flex';
+  document.getElementById('ipPage').style.display='none';
 }
 
 function loginUser1(){
-  document.getElementById('loginPage').style.display='none';
-  document.getElementById('dashboard').style.display='block';
+  const user = document.getElementById('userIn').value;
+  const pass = document.getElementById('passIn').value;
+
+  if(user === "JCOE" && pass === "jcoe@123") {
+    document.getElementById('loginPage').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+  } else {
+    alert("Invalid Username or Password");
+  }
 }
 
 function loginUser2(){
@@ -245,7 +329,9 @@ function loginUser2(){
 
 function goToDashboard(){
   espIP = document.getElementById("ipInput").value;
+  if(espIP === "") { alert("Please enter IP"); return; }
   document.getElementById("ip").value = espIP;
+  document.getElementById("connection").innerHTML = "ESP32: <span style='color:#27ae60'>Linked</span>";
   document.getElementById('ipPage').style.display='none';
   document.getElementById('dashboard').style.display='block';
 }
@@ -257,32 +343,35 @@ function goBackToLogin(){
   document.getElementById('dashboard').style.display='none';
 }
 
-function saveIP() {
-  espIP = document.getElementById("ip").value;
-  alert("IP Saved: " + espIP);
+function autoSaveIP(val) {
+  espIP = val;
+  if(val.length > 7) {
+    document.getElementById("connection").innerHTML = "ESP32: <span style='color:#27ae60'>Linked</span>";
+  } else {
+    document.getElementById("connection").innerHTML = "ESP32: <span style='color:#000'>Disconnected</span>";
+  }
 }
 
 function control(device, state) {
-  if (!espIP) {
-    alert("Enter IP first");
-    return;
-  }
-
+  if (!espIP) { alert("Please enter ESP32 IP in the box above"); return; }
   fetch(`http://${espIP}/${device}/${state}`)
   .then(res => res.text())
   .then(data => {
-    document.getElementById(device + "Status").innerText = state.toUpperCase();
-    document.getElementById(device + "Status").style.color = state === "on" ? "lightgreen" : "red";
+    let statSpan = document.getElementById(device + "Status");
+    statSpan.innerText = state.toUpperCase();
+    statSpan.style.color = state === "on" ? "#27ae60" : "#c0392b";
+    refreshStatus();
   })
-  .catch(() => alert("ESP32 not reachable"));
+  .catch(() => console.log("Communication error - Check IP or Connection"));
 }
 
 function refreshStatus() {
-  document.getElementById("lastUpdate").innerText = "Last Updated: " + new Date().toLocaleTimeString();
+  document.getElementById("lastUpdate").innerText = "Last Sync: " + new Date().toLocaleTimeString();
 }
 
 function getGesture() {
-  document.getElementById("gesture").innerText = "Gesture Updated";
+  document.getElementById("gesture").innerText = "Gesture Detected!";
+  setTimeout(() => { document.getElementById("gesture").innerText = "Swipe Up"; }, 1000);
 }
 
 function logout() {
