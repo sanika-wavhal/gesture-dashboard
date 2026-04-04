@@ -216,7 +216,7 @@ h1 {
 <div id="loginPage">
   <div class="login-box">
     <h2>WELCOME! 🤖🖐️📡</h2>
-    <input type="text" id="userIn" placeholder="Username"><br>
+    <input type="text" id="userIn" placeholder="Username" autocapitalize="none"><br>
     <input type="password" id="passIn" placeholder="Password"><br>
     <button onclick="loginUser1()">Enter</button><br>
     <button style="background:transparent; color:cyan; border:1px solid cyan;" onclick="openNewLogin()">New Login</button>
@@ -281,8 +281,7 @@ h1 {
       <div class="card">
         <h3>Cooling Fan 🌀</h3>
         <button class="control-btn" onclick="control('fan','on')">ON</button>
-        <button class="control-btn" onclick="control('fan','off')">OFF</button>
-        <p>Status: <span id="fanStatus" class="status">OFF</span></p>
+        <button class="control-btn" onclick="fanStatus" class="status">OFF</span></p>
       </div>
       <div class="card">
         <h3>Smart TV 📺</h3>
@@ -311,10 +310,10 @@ function openNewLogin(){
 }
 
 function loginUser1(){
-  const user = document.getElementById('userIn').value;
-  const pass = document.getElementById('passIn').value;
+  const user = document.getElementById('userIn').value.trim();
+  const pass = document.getElementById('passIn').value.trim();
 
-  if(user === "JCOE" && pass === "Jcoe@123") {
+  if(user.toLowerCase() === "jcoe" && pass === "Jcoe@123") {
     document.getElementById('loginPage').style.display='none';
     document.getElementById('dashboard').style.display='block';
   } else {
