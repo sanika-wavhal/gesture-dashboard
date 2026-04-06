@@ -17,10 +17,10 @@ body {
 
 /* LOGO STYLING */
 .logo {
-  width: 80px; /* Adjust size as needed */
+  width: 80px; 
   height: auto;
   margin-bottom: 15px;
-  border-radius: 50%; /* Makes it circular if it's a square image */
+  border-radius: 50%; 
   background: white;
   padding: 5px;
 }
@@ -171,21 +171,23 @@ h1 {
   color: #fff;
   font-weight: 600;
   transition: 0.2s;
+  /* Fixed width ensures all ON/OFF buttons are identical */
+  min-width: 60px;
 }
 
 .back-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  padding: 15px 30px;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 16px; /* Reduced size */
   border: none;
   border-radius: 50px;
   background: #1a1a1a; 
   color: #2ecc71; 
-  font-size: 16px;
+  font-size: 14px; /* Reduced size */
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 1000;
   border: 2px solid #2ecc71;
 }
@@ -246,7 +248,7 @@ h1 {
 <div id="dashboard">
   <div class="container">
     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-         <h1>🤖🖐️📡Gesture Control Wireless Communication System</h1>
+          <h1>🤖🖐️📡Gesture Control Wireless Communication System</h1>
     </div>
 
     <div class="top-bar">
@@ -281,7 +283,8 @@ h1 {
       <div class="card">
         <h3>Cooling Fan 🌀</h3>
         <button class="control-btn" onclick="control('fan','on')">ON</button>
-        <button class="control-btn" onclick="fanStatus" class="status">OFF</span></p>
+        <button class="control-btn" onclick="control('fan','off')">OFF</button>
+        <p>Status: <span id="fanStatus" class="status">OFF</span></p>
       </div>
       <div class="card">
         <h3>Smart TV 📺</h3>
